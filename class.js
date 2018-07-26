@@ -41,3 +41,11 @@ console.log(wina.displayPerson());
 
 
 
+/**
+ * Javascript juga punya Class/Constructor bawaan (built-in) seperti
+ * new Object()
+ * new String()
+ * new Array()
+ * new Date()
+ * dll
+ */
