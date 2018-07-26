@@ -1,6 +1,8 @@
 /**
- * Class ada Blueprint/cetakan/placeholder
+ * Class adalah Blueprint/cetakan/placeholder
  * dari object yang sebenarnya
+ * 
+ * Di Javascript sendiri Class bisa juga disebut Constructor Function
  */
 
  var nama = "Budi";
@@ -15,6 +17,8 @@
   * Lihat kode diatas, tanpa oop...saat kita mau buat multiple real object
   * kita mesti buatkan masing-masing object dengan variable maisng-masing...
   * gak flexible...salah satu cara agar pembuatan real object flexible adalah dengan membuat Class
+  * 
+  * Nah fungsi Person diatas disebut juga sebagai Constructor Function
   */
 function Person(nama, gender, umur) {
 
