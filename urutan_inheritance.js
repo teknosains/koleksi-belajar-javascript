@@ -19,7 +19,7 @@
 
   var x = Object.create(config);
   /**
-   * x --> config --> Object.prototype -> mewarisi-> null 
+   * x --> config --> Object.prototype --> null 
    */
 
    var y = Object.create(null);
@@ -29,7 +29,7 @@
     * kenapa y tidak mewarisi Object.prototype ? 
     * karena create() adalah peoperty langsung dari Object() 
     * dan bukanya property dari Object.prototype. 
-    * Jadisebennyar dalam Object() itu begini:
+    * Jadisebenarnya dalam Object() itu begini:
     */
 
     function Object() {
@@ -39,7 +39,7 @@
     }
 
     /**
-     * Lihatkan, create() adalah property langsung dari Object(), 
+     * Lihatkan, create() adalah property langsung (dalam constructor function) dari Object(), 
      * jika bukan property langsung, maka mestinya dalam nya begini:
      */
 
@@ -48,9 +48,8 @@
      };
 
      /**
-      * Selalu gunakan method hasOwnProperty() untuk cek suatu properti exist atau tidak
+      * di Javascript, Selalu gunakan method hasOwnProperty() untuk cek suatu properti exist atau tidak
       * jika gak pake method ini, maka javascript akan scan semua node Object.prototype 
-      * (prototype chain) sampe ujung
-      * ini gk bagus buat performace. 
+      * (prototype chain) sampe ujung, ini gk bagus buat performance. 
       * Dengan kata lain..tidak cukup hanya mengandalkan if (my.property == undefined)
       */
