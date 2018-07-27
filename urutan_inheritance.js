@@ -39,6 +39,8 @@
     }
 
     /**
+     * Coba console.log : Object.hasOwnProperty('create'); // true
+     * 
      * Lihatkan, create() adalah property langsung (dalam constructor function) dari Object(), 
      * jika bukan property langsung, maka mestinya dalam nya begini:
      */
