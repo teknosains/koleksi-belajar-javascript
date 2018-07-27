@@ -67,3 +67,5 @@ console.log(wina.displayPerson());
    var budi = new Object();
    a.[[Prototype]] = Human.prototype;
    Foo.call(budi)
+
+   //
