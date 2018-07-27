@@ -49,3 +49,21 @@ console.log(wina.displayPerson());
  * new Date()
  * dll
  */
+
+  /**
+   * Semua Constructor Function (atau Class) sebenarnya intance dari Object()
+   * 
+   * jadi saat kita menulis kode berikut
+   */
+
+   function Human() {
+
+   }
+
+   var budi = new Human();
+
+   // dibelakang, Javascript sebenarnya melakukan ini
+
+   var budi = new Object();
+   a.[[Prototype]] = Human.prototype;
+   Foo.call(budi)
