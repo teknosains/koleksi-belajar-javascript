@@ -1,9 +1,19 @@
-function Rectangle(width, height) {
-    this.width = width;
-    this.height= height;
+function Human() {
+    this.name = null;
+    this.age = null;
+
+    this.race2 = function() {
+        return 'asian';
+    }
 }
 
-Rectangle.prototype.area = function() {}
+Human.prototype.race = function() {
+    return 'asian';
+};
 
-console.dir(Rectangle.prototype)
+var budi = new Human();
 
+console.log(budi.hasOwnProperty('name'));
+console.log(budi.hasOwnProperty('age'));
+console.log(budi.hasOwnProperty('race'));
+console.log(budi.hasOwnProperty('race2'));

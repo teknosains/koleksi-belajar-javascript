@@ -48,3 +48,31 @@
   Person.prototype.newMethodAgain = function() {
       //
   };
+
+ /**
+  * Semua function yang kita buat, itu sebenarnya mewarisi prototype dari Object(),
+  * sebuah built-in function di Javascript
+  * 
+  * Misal kita buat
+  */
+
+  function Human () {
+
+  }
+
+  /**
+   * Human sebenarnya mewarisi function Object(), makanya kalo kita buat:
+   */
+
+  var agus = new Human();
+  
+  /**
+   * agus akan punya akses ke properti milik function Object()
+   * 
+   * misal: agus.valueOf(), agus.hasOwnProperty(), agus.isPrototypeOf() dan lain-lain
+   * silahkan cek di console browser
+   * 
+   * Jika dirunut maka urutan inheritance nya:
+   * 
+   * agus -> inherit from -> Human() -> inherit from -> Object()
+   */
