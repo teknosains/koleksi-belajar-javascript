@@ -31,7 +31,6 @@
     * dan bukanya property dari Object.prototype. 
     * Jadisebenarnya dalam Object() itu begini:
     */
-
     function Object() {
         this.create = function() {
             //
@@ -39,7 +38,7 @@
     }
 
     /**
-     * Coba console.log : Object.hasOwnProperty('create'); // true
+     * Coba cek di console.log -> Object.hasOwnProperty('create'); // true
      * 
      * Lihatkan, create() adalah property langsung (dalam constructor function) dari Object(), 
      * jika bukan property langsung, maka mestinya dalam nya begini:

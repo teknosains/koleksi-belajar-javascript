@@ -24,6 +24,10 @@
 
   function Person() {
       this.name = "Budi"
+
+      //membuat method dalam Fucntion constructor is a bad idea
+      //karena kita sbnarnya assign anonim funcrion ke memory
+      // lebih baik buat di prottype saja
       this.sayName = function() {
           return 'My name is ' + this.name;
       };
@@ -67,7 +71,7 @@
   var agus = new Human();
   
   /**
-   * agus akan punya akses ke properti milik function Object()
+   * agus akan punya akses ke properti prototype milik function Object()
    * 
    * misal: agus.valueOf(), agus.hasOwnProperty(), agus.isPrototypeOf() dan lain-lain
    * silahkan cek di console browser
@@ -75,4 +79,11 @@
    * Jika dirunut maka urutan inheritance nya:
    * 
    * agus -> inherit from -> Human() -> inherit from -> Object()
+   * atau lebih detail lagi
+   * agus -> inherit from -> Human.prototype -> inherit from -> Object.prototype
+   * 
+   * tapi si agus tidak punya akses langsung ke property dari constructor Object()
+   * 
+   * agus.create() <--- error , karenanya kalo kita check 
+   * agus.hasOwnProperty('create') <-- false
    */

@@ -57,7 +57,7 @@ console.log(wina.displayPerson());
    */
 
    function Human() {
-
+    this.name = ''
    }
 
    var budi = new Human();
@@ -65,7 +65,24 @@ console.log(wina.displayPerson());
    // dibelakang, Javascript sebenarnya melakukan ini
 
    var budi = new Object();
-   a.[[Prototype]] = Human.prototype;
-   Foo.call(budi)
+   budi.[[Prototype]] = Human.prototype;
+   Human.call(budi)
 
-   //
+   /**
+    *Jadi .[[Prototype]] di ciptakan saat Object di instanisasi/invoce dengan keyword new
+    * jadi saat kita buat real object seperti ini
+    */
+
+    var budi = new Human();
+
+    /**
+     * javascript akan membuatkan prototype sendiri untuk object budi 
+     * yaitu budi.[[Prototype]] dimana ini mewarisi prototye parent nya
+     * makanya:
+     * budi.[[Prototype]] = Human.prototype; 
+     * prototype si budi mewarisi prototype si Human, oleh karena itu
+     * si budi bisa akses semua property milik si human
+     * 
+     * .[[Prototype]], kalo di cek di browser console itu sama dengan __proto__
+     */
+
