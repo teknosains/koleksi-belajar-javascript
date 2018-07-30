@@ -31,11 +31,11 @@ function Person(nama, gender, umur) {
     };
 }
 
-// real Object
+//instance
 var budi = new Person('Budi', 'Pria', 30);
 console.log(budi.displayPerson());
 
-//real object
+//instance
 var wina = new Person('Wina', 'Wanita', 20);
 console.log(wina.displayPerson());
 
