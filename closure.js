@@ -110,3 +110,33 @@ kaliBebas(4);
  *   prefix: 'My Name is'
  * }
  */
+
+ /**
+  * Anjuran Closure
+  * 1. Jangan panggil/gunakan closure didalam Loop
+  * 2. Jangan panggil closure didalam Class
+  */
+
+  function Human(name) {
+      this.name = name;
+
+      // ini sbnrnya closure
+      this.sayName = function() {
+          return this.name;
+      }
+  }
+
+  /**
+   * Jika menulis kode seperti diatas, maka setiap kali Human() di instanisasi
+   * var budi = new Human('budi');
+   * var agus = new Human('agus);
+   * 
+   * maka function sayName() akan terus di re-assign oleh Javascript engine, jadinya gk bagus 
+   * buat performace.
+   * 
+   * maka smestinya kita buatkan method di prototype saja
+   */
+
+   Human.prototype.sayName = function() {
+    return this.name;
+   };
