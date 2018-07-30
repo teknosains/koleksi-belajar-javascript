@@ -1,5 +1,5 @@
 /**
- * Function return function sangat umum di Javascript, 
+ * Function return function sangat umum di Javascript, ini sering disebut juga Closure
  */
 
  function perkalian(a) {
