@@ -1,19 +1,5 @@
-function Human() {
-    this.name = null;
-    this.age = null;
+let str = "hello";
 
-    this.race2 = function() {
-        return 'asian';
-    }
-}
+str.toUpperCase();
 
-Human.prototype.race = function() {
-    return 'asian';
-};
-
-var budi = new Human();
-
-console.log(budi.hasOwnProperty('name'));
-console.log(budi.hasOwnProperty('age'));
-console.log(budi.hasOwnProperty('race'));
-console.log(budi.hasOwnProperty('race2'));
+console.log(str);
