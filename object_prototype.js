@@ -27,7 +27,9 @@
 
       //membuat method dalam Fucntion constructor is a bad idea
       //karena kita sbnarnya assign anonim funcrion ke memory
-      // lebih baik buat di prottype saja
+      // setiap kali ada instanisasi dengan keyword new Person()
+
+      //makanya lebih baik buat method itu di prottype saja
       this.sayName = function() {
           return 'My name is ' + this.name;
       };
