@@ -3,17 +3,52 @@
  * sebuah function bisa mengakses variable di lexical scope pada
  * function parent setelah parent function di definisi dan destroy
  * 
+ * setelah parent function nya di destroy, maka child function tadi
+ * akan di eksekusi di Global context (karena kan sudah di return sama parent function)
+ * 
  * pusing? 
  */
 
+ /**
+  * Global context, lokal context...what the heck?
+  */
+
+
+ // myFunction ada di Global context
+function myFunction(a) {
+    // local context
+
+    // function dibawah ini ada di local context-nya si myFunction
+    // jika function dibawah ini di return, makanya nantinya ia akan ada
+    // di global context
+    let test = function (b) {
+        // local context
+        return a * b;
+    };
+
+    return test;
+}
+
+let coba = myFunction(2); 
+// ini itu sama dengan coba = function test(b) { a * b }
+// karena si myFunction() me-return function test()
+// dan sekarang, si test() ada di Global context
+  
+
+
+// contoh
+
+
+ // parent function
 function perkalian(a) {
+    //child function/closure
     return function (b) {
         return a * b;
     }
 }
 
 // perkalian basis lima
-var kaliLima = perkalian(5);
+var kaliLima = perkalian(5); // 
 /**
  * segera setelah kita tulis seperti diatas, function perkalian() dan argumen nya
  * di destroy dari memory. dan variable kaliLima sekarang berisi function definition
@@ -21,7 +56,11 @@ var kaliLima = perkalian(5);
  * 
  * dengan kata lain, dibelakang sebenarnya javascript membuatkan kode sbb:
  * 
- * var kaliLima = function (b) { return a * b; }
+ * var kaliLima = function (b) { return a * b; } 
+ * 
+ * artinya sekarang kaliLima akan di eksekusi di Global context,
+ * dan kalau ada di Global context, artinya mestinya dia tidak punya akses lagi
+ * ke lexical/local content function parent nya.
  * 
  * silahkan coba console.dir(kaliLima) di browser
  */

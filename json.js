@@ -36,3 +36,7 @@ let player = {
 };
 
 JSON.stringify(player); // {"name":"Budi","score":[1,2,3]}
+
+
+// convert json ke Object?
+// tinggal pake method JSON.parse(json_string)
