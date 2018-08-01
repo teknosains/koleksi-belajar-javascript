@@ -1,10 +1,8 @@
 /**
- * Apa sih Closure? Closure ada mekanisme di Javascript dimana
- * sebuah function bisa mengakses variable di lexical scope pada
- * function parent setelah parent function di definisi dan destroy
+ * Apa sih Closure? Closure adalah mekanisme di Javascript dimana
+ * sebuah function bisa mengakses variable di lexical scope
+ * function parent-nya setelah parent function di definisi dan destroy
  * 
- * setelah parent function nya di destroy, maka child function tadi
- * akan di eksekusi di Global context (karena kan sudah di return sama parent function)
  * 
  * pusing? 
  */
