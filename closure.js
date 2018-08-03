@@ -151,7 +151,7 @@ kaliBebas(4);
  /**
   * Anjuran Closure
   * 1. Jangan panggil/gunakan closure didalam Loop
-  * 2. Jangan panggil closure didalam Class
+  * 2. Jangan panggil closure didalam Class/Constructor Function
   */
 
   function Human(name) {
