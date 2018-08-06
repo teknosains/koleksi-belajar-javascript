@@ -2,4 +2,4 @@
 
 Contoh-contoh kode dan keterangannya ada di Komentar (inline comment)
 
-Update Daily
+Will be Updated Daily or When I need it
