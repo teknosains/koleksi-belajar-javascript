@@ -2,6 +2,7 @@
  * Array.reduce berguna saat hendak melakukan operasi matematika
  * terhadap array seperti nge-SUM dll
  *
+ *  Array.reduce(<function>, initValue)
  */
 const numberSumer = function(arr) {
     /**
@@ -9,7 +10,7 @@ const numberSumer = function(arr) {
      */
     return arr.reduce(function(a, b) {
         return a + b;   
-    }, 0);
+    });
 };
 
-console.log(numberSumer([2,3]));
+console.log(numberSumer([2,3])); // 5

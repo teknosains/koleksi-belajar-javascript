@@ -5,7 +5,7 @@
  */
 
  let data = [
-    ['nama', 'budi'],
+    ['nama', 'budi'], // key nya nama', valuenya 'budi'
     ['umur', 30]
  ];
 
