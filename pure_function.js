@@ -41,6 +41,7 @@ console.log(time());
 
  // contoh pure function yang dikotori, jadinya gk pure lagi, karena fungsi myAge
  // bergantung pada variable global age
+ 
 
  const age = 20;
 
@@ -50,3 +51,15 @@ console.log(time());
 
  console.log(myAge(30));
 
+// merubah value
+let nilai = 10; // bisa juga var nilai = 10;
+let rubahNilai = function() {
+    nilai = 12;
+};
+
+rubahNilai();
+
+console.log(nilai); // 12  <--- nilai sekarang berubah
+// karenanya function rubahNilai() diatas bukan lah pure function
+// karena ia merubah suatu entity diluar context pribadi nya
+// alias dia punya side-effect
