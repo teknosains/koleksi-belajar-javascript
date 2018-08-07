@@ -61,6 +61,13 @@ let max2 = Math.max(5, 7, 8, 9, 10); // 10 ...begini baru bisa
  /**
   * lihat apply(null, score) , kok paramater pertama nya null? itu artinya
   * kita akan assign null sebagai value bagi "this" milik function max()
+  *
+  * ingat bahwa setiap function otomatis punya properti "this" masing-masing
+  * 
+  * kita assign this = null lewat apply(null, score), itu karena kita tidak butuh
+  * ada operasi yang melibatkan "this" milik si function max();
+  *
+  * beda cerinya dengan kasus dibawah ini 
   */
 
  // contoh lain
@@ -76,6 +83,9 @@ let max2 = Math.max(5, 7, 8, 9, 10); // 10 ...begini baru bisa
 
  // perhatikan pada function sayName() diatas, tiba-tiba ada property this.name dan this.age
  // padahal object user{} tidak punya property name dan age 
+ // itu berarti kita butuh adanya operasi pada "this"-nya. dengan kata lain...kita mau pakai tuh
+ // "this" nya si sayName()
+
 let udin = { name: 'Udin', age: 30 };
 user.sayName.apply(udin, ['Jakarta', '0817161671']);
 
