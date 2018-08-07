@@ -103,8 +103,7 @@
      this.matkul.forEach(function(item, index) {
        console.log(this.name + ': ' + item);
      }.bind(this));
-     // pake bind, dna kita bind/ikat this milik si object mhs ke function(item, index)
-
+     // pake bind, dan kita bind/ikat this milik si object mhs ke function(item, index)
     }
   };
   
@@ -226,7 +225,10 @@ let mhs = {
   }
 };
 
-mhs.showMatkul();
+mhs.showMatkul();  // saat dipanggll seperti ini, itu artinya semua content dari functiion
+// showMatkul() akan dibawa keluar...artinya sekarang ia akan dieksekusi diluar context-nya sendri
+// alias di Global context.
+// lihat comment pada line this.matkul.forEach(function(item, index) diatas
 
 // solusi masalah diatas ???
 
@@ -260,8 +262,7 @@ let mhs = {
    this.matkul.forEach(function(item, index) {
      console.log(this.name + ': ' + item);
    }.bind(this));
-   // pake bind, dna kita bind/ikat this milik si object mhs ke function(item, index)
-
+   // pake bind, dan kita bind/ikat this milik si object mhs ke function(item, index)
   }
 };
 

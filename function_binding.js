@@ -35,3 +35,36 @@
  
   // kita panggil
   usr(); // budi
+
+  // contoh lain
+let user = {
+    name: 'budi',
+    age: 20,
+    sayName: function() {
+        console.log(this);
+        return 'Name: ' + this.name + ', Age: ' + this.age;
+    }
+}
+
+// kalao kita panggil seperti ini  cara #1
+let say = user.sayName();
+console.log(say); // "Name: budi, Age: 20"
+
+// dia valid karena function sayName() akan di eksekusi di local scope-nya
+
+// tapi kalau kita panggil seperti ini cara #2
+let say2 = user.sayName; 
+// ini artinya sayName() akan dieksekusi di luar scopenya atau dalam contoh ini dia
+// akan di panggil di Global scope, makanya kalao kita console
+
+console.log(say()); // "Name: undefined , Age: undefined"
+
+// itu karena "this" nya sekarang milik global object window, karena dipanggil diglobal scope
+// sementara kita maunya "this"-nya itu tetep milik si sayName()
+
+// gimana caranya biar valid ?? yaitu kita bisa
+// pake cara #1 sebelumnya, atau pakai bantuan bind()
+
+// pake bind()
+let boundSay = say2.bind(user);
+console.log(boundSay()); // "Name: budi, Age: 20"

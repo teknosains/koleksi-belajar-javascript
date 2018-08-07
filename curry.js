@@ -217,35 +217,36 @@
    * 
    */
 
-  function curry(fn) {
-    return function curried(...args)  {
-      console.log('args1: ' + args);
-      console.log("length curry vs length original: " + args.length + ':' +fn.length)
+function curry(fn) {
+  return function curried(...args)  {
+    console.log('args1: ' + args);
+    console.log("length curry vs length original: " + args.length + ':' +fn.length)
+    /**
+     * Jika jumlah argument function yang mau di curry >= original function
+     * langsung aja panggil/apply original function nya
+     */
+    if (args.length >= fn.length) { // step #1
+      console.log('masuk step #1');     
+      return fn.apply(this, args);
+    } else {
       /**
-       * Jika jumlah argument function yang mau di curry >= original function
-       * langsung aja panggil/apply original function nya
+       * Jika lebih sedikit, kita proses secara recursif
+       * untuk meng-gabung/merge semua argument
+       * sampai jumlahnya sama dengan original functionnya
+       * dan akhirnya akan kembali masuk ke step #1
        */
-      if (args.length >= fn.length) { // step #1
-        console.log('masuk step #1');     
-        return fn.apply(this, args);
-      } else {
-        /**
-         * Jika lebih sedikit, kita proses secara recursif
-         * untuk meng-gabung/merge semua argument
-         * sampai jumlahnya sama dengan original functionnya
-         * dan akhirnya akan kembali masuk ke step #1
-         */
-        console.log('masuk step #2..');
-        return function(...args2) { // step #2
-           console.log('args2: ' + args2)
-           console.log('final argumen step args1+args2: ' + args.concat(args2));
-           // gabung argument menjadi [ar1, ar2, ...arn]
-           return curried.apply(this, args.concat(args2)); 
-          //recursive call
-        }
+      console.log('masuk step #2..');
+      return function(...args2) { // step #2
+          console.log('args2: ' + args2)
+          console.log('final argumen step args1+args2: ' + args.concat(args2));
+          // gabung argument menjadi [ar1, ar2, ...arn]
+          // setelah argument di-merge, kita kembalikan/pass lagi ke function curried() diatas
+          return curried.apply(this, args.concat(args2)); 
+        //recursive call
       }
     }
   }
+}
 
 function logging(date, type, message) {
   return date + ':' + '['+type+']' + ' -> ' + message;
