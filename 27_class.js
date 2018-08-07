@@ -86,3 +86,71 @@ console.log(wina.displayPerson());
      * .[[Prototype]], kalo di cek di browser console itu sama dengan __proto__
      */
 
+   /**
+    * Di Javascript versi baru, kita sudah bisa memakai keyword class sebagaimana
+    * bhs pemrograma lainnya
+    */
+
+    class Mahasiswa {
+        //...some code
+    }
+
+    /**
+     * private method di Class
+     */
+    function User(name, age) {
+        this.name = name; // visible diluar
+        this.age = age; // visible diluar
+        // method ini visible juga diluar
+        this.sayName = function() {
+            return sayHi();
+        };
+
+        //private method ? buat aja, tapi jangan pake "this"
+
+        function sayHi() { // invisible diluar, hanya bisa diakses didalam User
+            // tapi function ini tidak punya akes ke "this"-nya si User
+            // this.name; // undefined
+            // karens "this" didalam sini itu milik global window object
+            // cara akses propertinya ya seperti pada function biasa
+            let theName = name; // name nya ambil dari User(name, age)
+            return 'Hi ' + theName;
+        }
+
+    }
+
+    let budi = new User('Budi', 30);
+    budi.sayName(); // Hi Budi;
+
+
+    /**
+     * Prototype based class
+     * 
+     * kebanyakan developer lebih memilih Class prototype-based
+     * karena semua built-in javascript object seperti Object(), Array(), Math, Number() dll
+     * juga berdasarkan ini
+     * 
+     * lihat detailnya di file 18_object_prototype.js
+     */
+
+     function Sapi (name) {
+         this.name = name;
+     }
+
+     Sapi.prototype.sayHi = function() {
+        return 'Hi ' + this.name;
+     };
+
+     let dodi = new Sapi('Dodi');
+     dodi.sayHi(); // Hi Dodi
+
+    // contoh pada library Array.filter()
+
+    //itu dibelang ia sebenarnya begini
+     function Array(param) {
+         //...
+         //...
+     }
+     Array.prototype.filter = function(arg) {
+        // ...
+     };

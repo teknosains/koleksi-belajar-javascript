@@ -66,6 +66,7 @@ const budi = Object.create(Human);
 console.log(budi)
 
 
+// baca juga penjelasan lebih detail di file 18_object_prototype.js
 
 /**
  * dalam dunia nyata, penggunaan Class Inheritance memiliki banyak kekurangan

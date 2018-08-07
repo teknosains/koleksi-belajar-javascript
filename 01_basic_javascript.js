@@ -8,7 +8,7 @@
   * dibanding pake var
   */
 
- var nama = "Budi"; // boleh, sekarang tidak di rekomendasi
+ var nama = "Budi"; // boleh, tapi sekarang tidak di rekomendasi
  
  let nama2 = "Budi"; // recommended
  
