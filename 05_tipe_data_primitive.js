@@ -10,7 +10,7 @@
  /**
   * DIatas adalah tipe data primitif string..tapi dibelakang layar, Javascript
   * menyediakan spesial object/copy dari variable 
-  * yang punya akses ke semua fungsionalitas String() karena tipenya string
+  * yang punya akses ke semua fungsionalitas built-in String() karena tipenya string
   * 
   * oleh karena itu maka variable diatas akan punya akses ke fungsi/method seperti:
   */
@@ -22,7 +22,7 @@
   /**
    * variable age adalah primitif integer, dan integer adalah Number;
    * jadinya Javscript membuat spesial object/copy-an dari variable age 
-   * dan terhadap spesial object tadi, lalu menyediakan fungsionalitas dari Number()
+   * dan terhadap spesial object tadi, lalu menyediakan fungsionalitas dari built-in Number()
    * makanya ia akan punya akses ke fungsi seperti
    */
   age.toFixed(2); // 20.00
