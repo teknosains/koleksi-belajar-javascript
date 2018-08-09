@@ -1,8 +1,18 @@
 /**
- * Javascript punya tipe data primitif
+ * Ada beberapa type data primitif di Javascript
+ * 1. null
+ * 2. undefined
+ * 3. string
+ * 4. number
+ * 5. boolean
+ * 6. symbol (baru ada di Ecmascript 2015)
+ */
+
+/**
+ * yaap..Javascript punya tipe data primitif...
  * 
  * Tapi dibelakang layar, Javascript engine menyiapkan akses ke berbagai Methods/fitur
- * sesuai dengan tipe nya
+ * di built-inj Object sesuai dengan tipe nya
  */
 
  let name = "Agus";
