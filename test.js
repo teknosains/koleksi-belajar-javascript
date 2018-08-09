@@ -1,24 +1,18 @@
-/**
- * Currying..adalah metoda apopuler di kalangan Javascript developer
- * untuk membuat function dimana argument function tersebut
- * di translate menjadi stand-alone function 
- * 
- * function(a, b) --> function(a)(b)
- */
+let count = 1;
+function counter() {
+  let max = 1e4;
+  do {
+    count++;
+    printit(count);
+  } while (count % 1e2 != 0);
 
-function curry(fn) {
-    return function(a) {
-      return function(b) {
-        return fn(a, b);
-      }
-    }
+  if (count < max) {
+    setTimeout(counter, 0);
   }
-  
-  function tambah(a, b) {
-    return a + b;
-  }
-  
-  let tambahPakeCurry = curry(tambah);
-  
-  // lihat nih cara pakai nya: function(a)(b)
-  console.log(tambahPakeCurry(2)(3)); // 5
+}
+
+function printit(i) {
+  console.log(i);
+}
+
+counter();

@@ -6,7 +6,7 @@
  */
 
  /**
-  * Setiap data property di object disediakan property: writable, enumerable dan configurable
+  * Setiap data property di object disediakan attribute: writable, enumerable dan configurable
   * mereka ber-3 biasa disebut sebagai Data Property Descriptors
   * dan bisa kita cek dengan cara begini:
  */

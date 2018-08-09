@@ -18,3 +18,33 @@
  kaliLima(5); //25
  kaliSepuluh(6); // 60
 
+ /**
+  * IIFE (immidiate invoke function expression)
+  */
+
+  function test () {
+
+  }
+
+  // call normally
+  test();
+
+  // bagaimana jika ingin function nya otomatis terpanggil tanpa harus
+  // dipanggil manual ? , begini
+
+  (function() {
+    console.log('hello world'); // hello world
+  })();
+
+  // javascript sebenanyr melakukan ini dibelakang
+
+  (
+    function() {
+
+    }
+  );
+
+  (); // panggil function kosong
+
+
+

@@ -57,7 +57,7 @@ console.log(wina.displayPerson());
    */
 
    function Human() {
-    this.name = ''
+    this.name = '';
    }
 
    var budi = new Human();
@@ -87,16 +87,33 @@ console.log(wina.displayPerson());
      */
 
    /**
-    * Di Javascript versi baru, kita sudah bisa memakai keyword class sebagaimana
+    * Di Javascript versi baru ES6, kita sudah bisa memakai keyword class sebagaimana
     * bhs pemrograma lainnya
     */
 
     class Mahasiswa {
+        constructor(name, ipk) {
+            this.name = name;
+            this.ipk = ipk;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getIpk() {
+            return this.ipk;
+        }
         //...some code
     }
 
+    let agus = new Mahasiswa('Agus', 4.0);
+    agus.getName();
+    agus.getIpk();
+
     /**
      * private method di Class
+     * ---------------------------------------------------
      */
     function User(name, age) {
         this.name = name; // visible diluar
@@ -125,7 +142,7 @@ console.log(wina.displayPerson());
 
     /**
      * Prototype based class
-     * 
+     * -------------------------------------------------
      * kebanyakan developer lebih memilih Class prototype-based
      * karena semua built-in javascript object seperti Object(), Array(), Math, Number() dll
      * juga berdasarkan ini
@@ -144,9 +161,11 @@ console.log(wina.displayPerson());
      let dodi = new Sapi('Dodi');
      dodi.sayHi(); // Hi Dodi
 
-    // contoh pada library Array.filter()
-
-    //itu dibelang ia sebenarnya begini
+    /**
+     * contoh pada library Array.filter()
+     * 
+     * itu dibelakang ia seperti begini
+     */
      function Array(param) {
          //...
          //...

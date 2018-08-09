@@ -67,7 +67,7 @@ let max2 = Math.max(5, 7, 8, 9, 10); // 10 ...begini baru bisa
   * kita assign this = null lewat apply(null, score), itu karena kita tidak butuh
   * ada operasi yang melibatkan "this" milik si function max();
   *
-  * beda cerinya dengan kasus dibawah ini 
+  * beda ceritanya dengan kasus dibawah ini 
   */
 
  // contoh lain
@@ -89,7 +89,7 @@ let max2 = Math.max(5, 7, 8, 9, 10); // 10 ...begini baru bisa
 let udin = { name: 'Udin', age: 30 };
 user.sayName.apply(udin, ['Jakarta', '0817161671']);
 
-// secara bahasa perintah diatas itu: Tolong dong masukkan object udin ke sayName dan assign object 
+// secara bahasa perintah diatas itu: Tolong dong masukkan object udin ke user.sayName dan assign object 
 // itu ke "this" nya si sayName. Tolong juga lempar array paramater nya ke masing-masing
 // paramater function(alamat, phone)
 //
@@ -106,6 +106,7 @@ user.sayName.apply(udin, ['Jakarta', '0817161671']);
 *  } 
 */
 
+
 /**
  * Function call()
  * ------------------------------------------------------------------
@@ -120,8 +121,19 @@ user.sayName.apply(udin, ['Jakarta', '0817161671']);
 
   // dengan contoh yang sama diatas, bisa kita pakai call()
 
-  user.sayName.apply(udin, 'Jakarta', '0817161671'); // lihat...bukan array lagi paramaternya
+  user.sayName.call(udin, 'Jakarta', '0817161671'); // lihat...bukan array lagi paramaternya
 
+
+  // contoh lagi, tanpa paramater
+  function test() {
+    console.log(this); // {name: "Budi"}
+    console.log(this.name);  // Budi
+  }
+  
+  let a = {name: "Budi"};
+  
+  test.call(a); // bisa pake call()
+  test.apply(a); // atau pake apply()
 
   /**
  * Function bind()

@@ -32,9 +32,11 @@
     * Jadisebenarnya dalam Object() itu begini:
     */
     function Object() {
-        this.create = function() {
-            //
-        }
+       
+    }
+    
+    Object.create = function() {
+        //
     }
 
     /**

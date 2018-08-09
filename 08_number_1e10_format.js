@@ -20,6 +20,7 @@
 // 0.0001 -> 1 / 10000 -> 1e-4
 
 // toSring() pada number
+//
 // jika number pake toString(), artinya di akan diconver ke basis 10 by default
 // toString(16) , basis 16 (hexadecimal)
 // toString(2), basis 2 (binary)
@@ -37,3 +38,33 @@ num.toString(16); // hexa fff
 
 // karena kalau 123456.toString(36) maka ia error karena dianggap single dot 
 // adalah pecahan desimal
+
+/**
+ * Konversi Numeric ke Number
+ */
+let age = "40"; // string
+
+console.log(+age); // jadinya number
+console.log(parseInt(age)); // number, integer
+console.log(parseFloat(age)); // number, float
+
+/**
+ * Operasi numeric
+ */
+let x = "10";
+let y = "20";
+
+// string + string
+console.log(x + y); // 1020  <--- karena dianggap sebagai konkatenasi
+
+let a = "10";
+let b = 20;
+
+// string + number
+console.log(a + b); // 1020 <--- masih dianggap sebagai konkatenasi selama opeator nya +
+
+// string / number
+console.log(a / b); // 0.5 <-- selain operator + maka otomatis dikonversi ke Number
+
+// string * number
+console.log(a * b); // 200 <-- selain operator + maka otomatis dikonversi ke Number
