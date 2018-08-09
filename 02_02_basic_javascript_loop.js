@@ -30,3 +30,33 @@
   }
 
   console.log(i); // 5 <--- lihat kan sbnrnya 1 itu sampe 5, 
+
+  /**
+   * FOR-IN
+   * 
+   * berguna untuk nge-Loop Object
+   */
+
+  let user = {
+    name: "agus",
+    age: 30,
+    sayName: function() {
+      return 'My name is ' + this.name;
+    }
+  };
+
+  for (let key in user) {
+    console.log(key); // name, age
+    console.log(user[key]); // agus, 30, function() {...}
+  }
+
+  /**
+   * FOR-OF
+   * 
+   * berguna untuk nge-loop Array
+   */
+  let nilai = [1,2,3,4];
+
+  for (let x of nilai) {
+    console.log(x); // 1, 2, 3, 4
+  }
