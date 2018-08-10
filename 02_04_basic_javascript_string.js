@@ -21,7 +21,7 @@ let test = "My String";
 // makanya ia akan punya akses ke method-method yang terdapat dalam String() 
 // seperti seperti toUpperCase, toLowerCase dll
 
-// String juga enumrable. karena Enumarable, kita bisa pecahin tuh jadi satu-satu karakter
+// String juga iterable. karena iterable, kita bisa pecahin tuh jadi satu-satu karakter
 
 let car = 'Honda';
 car[0]; // H
@@ -33,7 +33,7 @@ for (let char of car) {
   console.log(char); // H, o, n, d, a
 }
 
-// tapi meskipun enumerable, string itu immutable alias tidak bisa di ubah
+// tapi meskipun iterable, string itu immutable alias tidak bisa di ubah
 // per karakter
 
 let motor = "Yamaha";
