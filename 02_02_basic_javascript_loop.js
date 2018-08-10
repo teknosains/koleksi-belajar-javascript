@@ -117,12 +117,32 @@
     // i=5...makanya hasilnya 5, 5, 5...dst
 
     // Solusinya gimana? pake Apply atau pake let
+
+    // pakai apply()
+
     for (var i = 0; i < 5; i++) {
       setTimeout(function() {
          console.log(i); // 0, 1, 2, 3, 4
       }.apply(i));
     }
+    // varian lain klo pakai apply()
+    for (var i = 0; i < 5; i++) {
+      setTimeout(function() {
+         console.log(this); // 0, 1, 2, 3, 4
+      }.apply(i));
+    }
+    for (var i = 0; i < 5; i++) {
+      setTimeout(function(c) {
+         console.log(c); // 0, 1, 2, 3, 4
+      }.apply(null, i));
+    }
 
+    // kok bisa pake apply? lihat how it works di 
+    // file 34_function_apply_and_call_and_bind.js
+
+
+    // pake let
+    
     for (let i = 0; i < 5; i++) {
       setTimeout(function() {
          console.log(i); // 0, 1, 2, 3, 4
