@@ -137,12 +137,19 @@
       }.apply(null, i));
     }
 
-    // kok bisa pake apply? lihat how it works di 
+    // kalo pakai apply() bisa pakai call() jg bisa dong? iyah bisa
+    for (var i = 0; i < 5; i++) {
+      setTimeout(function() {
+         console.log(i); // 0, 1, 2, 3, 4
+      }.call(i));
+    }
+
+    // kok bisa pake apply() ? lihat how it works di 
     // file 34_function_apply_and_call_and_bind.js
 
 
     // pake let
-    
+
     for (let i = 0; i < 5; i++) {
       setTimeout(function() {
          console.log(i); // 0, 1, 2, 3, 4
