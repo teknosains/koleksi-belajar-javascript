@@ -143,3 +143,45 @@ user.sayName.apply(udin, ['Jakarta', '0817161671']);
  /**
   * bisa juga dibaca tentang bind() di file function_binding.js
   */
+
+  /**
+   * apply(), call(), bind() dalam self-invoking function
+   */
+
+  (function() {
+    console.log(this); // 30
+  }.apply(30));
+  
+  (function(c) {
+    console.log(c);
+  }.apply(null, [30])); // 30
+
+  (function() {
+    console.log(this);  // 30
+  }.call(30));
+  
+  (function(c) {
+    console.log(c); // 30
+  }.call(null, 30));
+  
+  // berbeda denngan apply() dan call(), pada bind() kita mesti tambahin extra call
+  // sebagaimana self-invoking function pada umumnya
+  
+
+  (function() {
+    console.log(this); // 30
+  }.bind(30))();
+
+
+    (function() {
+    console.log(this.a);
+    }.bind({a: 3, b: 5}))(); // {a: 3, b: 5}
+
+  // karena bind itu tujuannya jika function kita itu di eksekusinya nanti belakangan
+
+  function coba() {
+    console.log(this.test);
+  }
+
+  let x = coba.bind({test: '30'}); // gk bakal run, harus di panggil manual
+  x(); // baru dah jalan

@@ -147,6 +147,12 @@
     // kok bisa pake apply() ? lihat how it works di 
     // file 34_function_apply_and_call_and_bind.js
 
+    // pake bind() bisa ? bisa juga
+    for (var i = 0; i < 5; i++) {
+      setTimeout((function() {
+        console.log(i);
+      }).bind(i)());
+    }
 
     // pake let
 

@@ -28,5 +28,39 @@ let data = new Array('agus', 'budi', 'udin'); // ["agus", "budi", "udin"]
 // kalau yang kita mau mah kan hasilnya 2
 // anehnya pas kita arr.length hasilnya adalah 2, artinya element array nya ada 2
 // kan aneh
-// ternyata kalau argumen nya cuma satu new Array(2), itu artinya array akan berisi undefined
+// ternyata kalau argumen nya cuma satu new Array(2) dan type nya number, 
+// itu artinya array akan berisi undefined
 // value sebanyak 2, Array(3) berisi undefined value sebanyak 3
+
+let arr = new Array(2); // [undefined, undefined]
+let arr = new Array(3); // [undefined, undefined, undefined]
+let arr = new Array('kodok'); // ["kodok"]  <--- karena type nya bukan number, meskipun jumlah argument nya cuma 1
+
+/**
+ * Akses data Array
+ * 
+ * bisa pakai for, for-of atau method bawaan .forEach()
+ * 
+ * yang lebih reccomended kalo for-of karena tanpa callback function seperti pada forEach
+ * udah gitu..forEach itu gk bisa di break; karena dia akan telusiri seluruh array konten yang
+ * ada
+ */
+let mhs = ['Budi', 'Agus', 'Akum'];
+
+// for-of
+for (let val of mhs) {
+  console.log(mhs); // Budi, Agus, Akum
+}
+
+// bisa di break
+for (let val of mhs) {
+  if (val == 'Budi') {
+    console.log(mhs); // Bud
+    break; // loop exit
+  }
+}
+
+// forEach
+mhs.forEach(function(item, idx) {
+  console.log(item); // Budi, Agus, Akum
+});
