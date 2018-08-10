@@ -9,7 +9,7 @@
 
  // sekarang sebaiknya tidak lagi pakai var, tapi pakailah let atau const
 
- // var, bersifat global dan bisa berubah jika ada yang rubah dan di re-deklarasi
+ // var, bersifat global/function scoped dan bisa berubah jika ada yang rubah dan di re-deklarasi
  // meski di dalam function
 
  var test = "abc";
