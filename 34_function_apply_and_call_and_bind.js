@@ -106,6 +106,31 @@ user.sayName.apply(udin, ['Jakarta', '0817161671']);
 *  } 
 */
 
+// contoh , kali ini kita sematkan function callback
+let mhs = {
+  name: "Budi",
+  setName(s) {
+    this.name = s;
+  }
+}
+
+function setMhsName(name, callback) {
+  callback(name);
+}
+
+setMhsName('Agus', msh.setName);
+console.log(mhs.name); // Budi <---harus nya kan Agus ? kok bisa?
+// saat mhs.setName kita passing jadi sebagai callback, itu function setName()
+// jadinya dibawa keluar scope si object mhs, oleh karena itu "this"-nya si setName()
+// sekarang milik window global object, bukan lagi milik si object mhs
+// gimana dong caranya biar bener? ya kita mesti set/bikin "this" nya si setName()
+// milik si mhs lagi, bisa pakai apply() atau call()
+// kita tulis ulang setMhsName() menjadi
+function setMhsName(name, callback) {
+  callback.apply(mhs, [name]);
+  //callback.call(mhs, [name]); // kalao pake call
+}
+console.log(mhs.name); // Agus
 
 /**
  * Function call()

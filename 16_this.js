@@ -42,6 +42,11 @@
   coba();
 
   /**
+   * Kecuali juga function nya kita perlakukan sebagai Constructor
+   */
+  new coba(); // maka "this" nya sekarang milik si coba()
+
+  /**
    * Spesial kasus ---------------------------------------
    */
 
