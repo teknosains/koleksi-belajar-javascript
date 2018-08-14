@@ -64,3 +64,15 @@ for (let val of mhs) {
 mhs.forEach(function(item, idx) {
   console.log(item); // Budi, Agus, Akum
 });
+
+/**
+ * Karena Array adalah turunan dari Object, maka kode berikut sah-sah saja
+ */
+let y= [1, 2, 3];
+y.test = "blabla"; // membuat object, ini valid..kapan lagi ada bhs pemrograman yg bisa gini
+
+console.dir(Array.isArray(y)); // true  
+
+console.log(y.test); // "blabla";
+console.log(y); // [ 1, 2, 3, test: 'blabla' ]
+console.log(y['test']); // blabla
