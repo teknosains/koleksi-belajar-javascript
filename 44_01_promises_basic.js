@@ -35,7 +35,7 @@
    console.log(err); // Gagal load data
  });
 
- // kalao mau lebih jelas, user.then() diatas bisa kita remark sbb
+ // kalao mau lebih jelas, user.then() diatas bisa kita remake sbb
  let resolve = function(result) {
   console.log(result); // data user
  };

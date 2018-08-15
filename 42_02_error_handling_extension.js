@@ -54,9 +54,9 @@ if (true) { // simulate status !== 200
 
 // kita bisa juga buat Extension untuk tipe-tipe yang lainnya
 class myError extends URIError {
-  //
+  // sama kayak di HttpError
 }
 
 class myError extends TypeError {
-  //
+  // sama kayak di HttpError
 }

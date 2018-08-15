@@ -15,9 +15,15 @@
   * selesai
   */
   function call() {
-    callAjax1()
-      .callAjax2()
-        .callAjax3();
+    callAjax1() {
+      callAjax2() {
+        callAjax3() {
+          callAjaxN() {
+            ///....callback hell
+          }
+        }
+      }
+    }
   }
 
   /**
@@ -39,11 +45,14 @@
     resolve(20); 
     // 20 ini akan di teruskan ke then berikutnya
    }, 1000);
- }).then((result) => {
+ })
+ .then((result) => {
    return result + 10; // 20 + 10 =  30
- }).then((result) => {
+ })
+ .then((result) => {
    console.log(result + 5); // 30 + 5 <-- final output
- }).catch((error) => {
+ })
+ .catch((error) => {
   console.log(error);
  });
 
@@ -272,3 +281,102 @@ new Promise(function(resolve, reject) {
 }).catch(function(err) {
   // ReferenceError: blabla is not defined
 }); 
+
+/**
+ * saat membuat Promise, pastikan kita handle Error dengan .catch()
+ * Jika tidak maka Error nya gk ter-handle dan tentu saja bisa membawa bencana kemudian hari
+ * 
+ * Jangan melempar Error dalam Async call, karena nanti Error nya gk ke handle
+ */
+
+ new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    throw new Error('Error nih'); /// ini gak bakal ke-handle .catch() karena dia dieksekusi belakangan
+  }, 1000);
+ })
+ .then(function(response) {
+
+ })
+ .catch(function(err) {
+  console.log('Ada error: ' + err.stack); // gk masuk sini
+ });
+
+
+ // gimana solusinya diatas? pake reject cllback
+ new Promise(function(resolve, reject) {
+  setTimeout(function() {
+   reject(new Error('Error nih'));
+  }, 1000);
+ })
+ .then(function(response) {
+
+ })
+ .catch(function(err) {
+  console.log('Ada error: ' + err.stack); // Error nih
+ });
+
+
+ // jika keukeuh gak mau pakai catch(), pastikan rejection/error nya di Catch di then() 
+ // dalam argumen ke-2 nya
+ new Promise(function(resolve, reject) {
+    // 
+  })
+  .then(function(onFullfiled) {
+    // handle resolve
+  }, function(onRejected) {
+    // handle Error/rejecttion
+  });
+
+
+ /**
+  * Promise is an Object, a Class...bisa kita perlakukan sebagai first-class Object
+  * sama seperti Function dijavascript pada umumnya
+  * dan kita bisa tulis seperti saat menulis object/method prototype pada suatu Class/Function
+  */
+
+  let promise = new Promise(function(resolve, reject) {
+
+  });
+ 
+  promise.then(function(response) {
+
+  });
+
+  promise.catch(function(err) {
+
+  });
+
+  // tapi kelemahan pemangggilan dgn cara diatas adalah...ia hanya bisa 
+  // ada 1 then() dan satu catch(), karena penulisan seperti itu berarto
+  // then() nya adalah independen..atau masing-masing
+  let promise = new Promise(function(resolve, reject) {
+      resolve('Done');
+  });
+ 
+  promise.then(function(response) {
+      return response; //<-- in harusnya diteruskan ke then() dibawah, tapi gak bisa
+  });
+
+  promise.then(function(response) {
+    // karena then() ini independen alias inherit langsung dari Promise -nya
+  });
+
+  promise.catch(function(err) {
+
+  });
+
+  // kasarnya...ke-2 then() diatas itu masing-masing...gk bisa saling kenal satu sama lain
+  // makanya klo mau saling kenal....harus begini nulisnya
+  let promise = new Promise(function(resolve, reject) {
+    resolve('Done');
+  });
+
+  promise.then(function(response) {
+
+  })
+  .then(function(response2) {
+
+  })
+  .catch(function(err) {
+
+  });
