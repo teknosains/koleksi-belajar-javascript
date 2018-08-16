@@ -88,3 +88,26 @@
   function test2() {
     console.log(this) // [object Window]
   }
+
+  // self-invoking function pun, this nya by default undefined
+  (function() {
+    'strict mode';
+    console.log(this); // undefined
+  })();
+
+  //bagaimana jika ingin self-invoking function, this nya merujuk ke [object Window] ? 
+  // #1 kita pakai saja window object, dari pada this
+  // #2 apply()
+
+  (function(window, undefined) {
+    'strict mode';
+    console.log(window); // [object Window]
+  })(window);
+
+  (function() {
+    'use strict';
+   console.log(this); // [object Window]
+ }).apply(this);
+
+  // itulah kenapa kalao kita menulis sebuah script/library dalam strict mode, sebaiknya
+  // di masukan dalam self-invoking function seperti diatas

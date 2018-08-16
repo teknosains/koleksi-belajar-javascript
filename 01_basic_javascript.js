@@ -64,6 +64,8 @@
 
   let d = "test" * 2; // NaN
   let z = "test" + 2; // test2 ..ingat tanda + dianggap konkatenasi pada operasi aritmatika
+  let o = "5" - 2; // 3
+  let n = "2" + "2" - "2"; // 20 ..karena javascript akan evaluasi operator selain + dulu
 
   //konversi number ke string
 
