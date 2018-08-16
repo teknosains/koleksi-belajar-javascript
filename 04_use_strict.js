@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Apa sihi itu use strict ? 
+ * Apa sih itu use strict ? 
  * 
  * use strict adalah kita ngasih tau Javascript engine untuk pake
  * versi modern nya alih-alih pake engine yang lama.
@@ -10,7 +10,7 @@
  * syntax atau cara/teknik jadul,,,maka akan muncul error
  * 
  * makanya jika develop javascript dan targetnya adalah browser-browser versi baru,
- * pakailah "use strict" 
+ * atau fitur-fitur baru pakailah "use strict" 
  * 
  * use strict wajib ditempatkan di baris paling atas sebuah script, gak boleh gak
  * 
@@ -23,6 +23,16 @@
     //..
     //..
  }
+
+ // function dibawah bukan strict mode, karena posisi use strict nya tidak di paling atas
+ function nonStrictMode() {
+  let x = 34;
+
+   //..
+   'use strict';
+   //..
+ }
+
  /**
   * Masalah yang bisa terjadi, bayangkan kita punya 2 file
   * 1. library1.js (strict mode)
@@ -35,9 +45,10 @@
   * oleh karenya direkomendasikan membungkus semua script kita dalam self-invoking 
   * function seperti ini
   */
-
+  
+  // file library1.js
   (function() {
-    'strict mode';
+    'use strict';
 
     const PI = 3.14;
 
@@ -55,6 +66,15 @@
 
   })();
 
+  // dengan cara diatas, gda masalah saat kita gabungin banyak sekalipun karena strict mode
+  // bekerja didalam block function masing-masing file
+
+
+
+  /**
+   * this context dalam strict mode
+   */
+
   // catatan, this context untuk function dalam strict mode, itu by default undefined
   // dimana dalam normal mode itu refer ke global window object
   function test() {
@@ -68,12 +88,3 @@
   function test2() {
     console.log(this) // [object Window]
   }
-
-  // self-invoking function, this nya merujuk ke [object Window]
-  (function() {
-    'strict mode';
-    console.log(this); // [object Window]
-  })();
-
-  // itulah kenapa kalao kita menulis sebuah script/library dalam strict mode, sebaiknya
-  // di masukan dalam self-invoking function seperti diatas
