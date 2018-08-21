@@ -130,3 +130,23 @@ Promise.all([
 .catch((err) => {
   console.log(err);
 });
+
+
+/**
+ * Promise.race()
+ * 
+ * mirip dengan Promise.all(), hanya saja race(), siapa saja yang paling dulu berhasil maka
+ * ialah yang menang dan output dari promise nya adalah output dari pemenang, entah outputnya
+ * berupa resolve atau reject...yang penting siapa yang duluan memang
+ * 
+ * jadinya race() itu dulu-duluan...siapa cepat dia dapat
+ */
+Promise.race([
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Whoops!")), 2000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
+]).then(alert); // 1
+// outputnya 1 karena pemenang balap promise diatas sudah tentu yang paling awal
+// karena timeout janya lebih kecil...pada penggunaal real-world, misal 
+// jika fetch data dari Server...maka siapa saja bisa jadi pemenang-nya
+// pakai Promise.race() jika masing-masing promise tidak terikat satu sama lain

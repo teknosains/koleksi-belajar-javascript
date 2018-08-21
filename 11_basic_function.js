@@ -25,14 +25,14 @@
 
 // Global context 
 
-function myFunction() {
+function myFunction() { // function Declaration
 
     // local context
 }
 
 // di Javascript, sebuah fungsi akan dahulu memproses
 // apa-apa saja yang di local context nya sendiri
-// sebelum melihat ke Global context
+// sebelum melihat ke Lexical context/Global context
 
 
 function add() {
@@ -74,7 +74,8 @@ add(); // 5
   * operasi x * y
   */
 
-  // DI jabascript function juga bisa dibuat sebagai expression
+  // DI javascript function juga bisa dibuat sebagai expression
+  // Function Expression adalah function yang di assign langsung ke variable
 
   let hello = function(text) {
       return text;
@@ -86,7 +87,42 @@ add(); // 5
 
  console.log(test); // hello
 
- // jadi pada dasarnya let hello = function() {}  sama dengan function hello() {}
+  // jadi pada dasarnya let hello = function() {}  sama dengan function hello() {}
+
+ /**
+  * Catatan: Function expression tidak di Hoisting seperti function Declaration,
+  * makanya kalao pakai function Expression, wajib diletakan dibawah nya
+  */
+
+  // Function Delaration
+  cek();
+  function cek() {
+      console.log('Hello'); // Hello
+  }
+
+  // lihat function cek() diatas kita panggil sebelum-nya. Ini valid
+  // di Javascript karena di belakang, si Javascript engine memposisikan function ()
+  // di urutan teratas (Hoisting). Alias ia dibuat seperti ini di belakang layar
+  function cek() {
+
+  }
+  cek();
+
+// Beda dengan Function Expression
+hi(); // ReferenceError: hi is not defined
+let hi = function() {
+    console.log('Hi');
+};
+
+// lihat kan Error, itu karena hi tidak di Hoisting oleh Javascript,,makanya mesti dipanggil
+// setelah functionnya di definisikan
+
+let hi = function() {
+    console.log('Hi'); // Hi
+};
+
+hi();
+
 
  /**
   *  Default Paramater value
@@ -195,3 +231,87 @@ add(); // 5
       };
 
       sayHi();
+
+
+    /**
+     * Function Arguments
+     * 
+     * untuk melihat apa-apa saja yang dikirim ke sebuah function melalui paramater nya
+     * kita bisa menggunakan attribute "arguments"
+     */
+    function cek(a, b, c) {
+        console.log(arguments.length); // 3...panjang value argument yang dipassing
+        console.log(arguments); // {0: 2, 1: 3, 2: 4}
+        console.log(arguments[0]); // 2
+    }
+    cek(2, 3, 4);
+
+    // Di javascript function tanpa paramater-pun bisa kita passing-in value
+
+    function coba() {
+        console.log(arguments.length); // 3
+        console.log(arguments); // // {0: 4, 1: 5, 2: 6}
+        console.log(arguments[0]); // 4
+    }
+    coba(4, 5, 6);
+
+
+    // "arguments" adalah property lokal dari sebuah function
+    // jadi ia hanya bener-bener milik function-nya sendiri, tidak diturunkan
+    // ke function lain
+    
+    function test(a, b) {
+        console.log(arguments); // { 0: 1, 1: 2 }
+        return function(c, d) {
+            console.log(arguments); // { 0: 3, 1: 4 }
+        }
+    }
+    
+    test(1, 2)(3, 4);
+
+
+    /**
+     * Menghitung jumlah Paramater sebuah function dengan <Function.length>
+     * 
+     */
+    function fork(a, b) {
+
+    }
+    fork.length; // 2
+
+    /**
+    * Catatan: ...rest paramater tidak dihitung dalam Function.length
+    * lihat pembahasan rest paramater selengkapnya di file 32_rest_spread_operator.js
+    */
+    function rest(a, b, ...c) {
+
+    }
+    rest.length; // 2 ...hanya ada 2 paramater... yang ...c gak digitung
+
+    /**
+     * Catatan: Jika function mempunyai default paramater value, makanya yang akan dihitung
+     * adalah paramater sebelum paramater yang ada default valuenya 
+     */
+    let hi = function(a, b = 3) {
+
+    };
+    
+    hi.length; // 1 , jumlah paramater-nya hanya 1...karena yang kedua ada default valuenya, jadi gk dihitung
+
+    let hi2 = function(a, b = 3, c) {
+
+    };
+
+    h2.length; // 1, hanya paramater sebelum paramater yang ada default valuenya yang dihitung
+
+    let h3 = function(a, x, b = 3, c) {
+
+    };
+
+    h3.length; // 2, hanya a dan x yang dihitung..karena mereka berada sebelum paramater yang punya default value
+
+    // ini memang aneh...saya mah pengennya mau ada default paramater atau tidak
+    // mestinya tetap bisa dihitung...
+
+    // Behaviour dari default paramater ini cukup aneh-aneh...silahkan baca lengkapnya di
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters

@@ -146,3 +146,23 @@ Object.isExtensible(mahasiswa);
 Object.isSealed(mahasiswa);
 Object.isSealed(mahasiswa);
 Object.isFrozen(obj);
+
+/**
+ * Strict Mode vs Non-Strict Mode
+ * 
+ * saat bermain dengan internal attribute, hati-hatilah
+ */
+function script() {
+  'use strict';
+  let object1 = {};
+
+  Object.defineProperty(object1, 'property1', {
+    value: 42,
+    writable: false
+  });
+
+  object1.property1 = 77; // akan Error dalam striict Mode
+  // karena attribute writable: false, tapi klo gk di strict mode...
+  // meskipun writable: false..ia gak bakal Error...
+  // jadi biar aman...pakelah strict mode
+}

@@ -79,6 +79,14 @@
    console.log(p);
 
    /**
+    * Catatan: ...rest paramater tidak dihitung dalam Function.length
+    */
+    function rest(a, b, ...c) {
+
+    }
+    rest.length; // 2 ...hanya ada 2 paramater... yang ...c gak digitung
+
+   /**
     * Spread Operator  
     * 
     * spread operator juga pakai ... (triple dot), sama kayak rest paramater
