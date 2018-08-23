@@ -57,3 +57,101 @@ let sum2 = num.map((item) => { // pake kurawal karena body nya ada lebih dari 1 
     return item * 2; // statement 2
 });
 console.log(sum2); //[2, 6]
+
+/**
+ * Arrow function tidak punya "this" sendiri.  Saat di panggil, maka ia akan mencari this
+ * sampai ke Enclosing scope/lexical scope nya. Jika ketemu, maka
+ * this dari Lexial scope nya akan di pake
+ * -----------------------------------------------------
+ */
+let user = {
+    name: "budi",
+    sayName: function () {
+      console.log(this); // this ini milik object user
+    }
+  };
+  
+user.sayName();
+
+// bandingkan dengan arrow function
+
+let user = {
+    name: "budi",
+    sayName: () => {
+      console.log(this); // this ini milik global window object
+    }
+  };
+  
+  user.sayName();
+
+/**
+ * Arrow function tidak bisa di panggil dengan "new"
+ * -----------------------------------------------------
+ */
+const User = (name) => { 
+    this.name = name;
+}
+
+new User('Budi'); // TypeError: User is not a constructor
+
+/**
+ * Arrow function berguna untuk binding this context kedalam Callback
+ */
+const user = {
+    name: "Budi",
+    score: [20, 30, 40],
+    factor: 2,
+    printScore: function() {
+      let res = this.score.map((item) => {
+        return item * this.factor; // this ini diambil dari Lexical Scope/Enclosing Scope si Arrow function
+        // ketemu dah..ternyata this nya milik si object user
+        // ia bakal otomatis nyari si this nya...kalo function biasa mesti kita pake-in bind()
+      });
+      
+      return res;
+    }
+  };
+  
+  
+  let c = user.printScore();
+  console.log(c); // [40, 60, 80]
+
+  // tanpa Arrow function kode diatas mesti begini
+
+
+const user = {
+    name: "Budi",
+    score: [20, 30, 40],
+    factor: 2,
+    printScore: function() {
+      let res = this.score.map(function(item) {
+        return item * this.factor;
+      }.bind(this));
+      
+      return res;
+    }
+  };
+  
+  
+  let c = user.printScore();
+  console.log(c); // [40, 60, 80]
+
+  // atau begini (yang lebih baik)
+
+
+const user = {
+    name: "Budi",
+    score: [20, 30, 40],
+    factor: 2,
+    printScore: function() {
+      let res = this.score.map(function(item) {
+        return item * this.factor;
+      }.bind({ factor: this.factor }));
+      
+      return res;
+    }
+  };
+  
+  
+  let c = user.printScore();
+  console.log(c); // [40, 60, 80]

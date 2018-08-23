@@ -24,7 +24,7 @@
 
  /**
   * Await adalah syntax yang digunakan untuk menunggu sebuah promise
-  * sampai selesai dan memberikat hasil (resolve).
+  * sampai selesai dan memberikan hasil baik itu hasilnya resolve atau reject.
   * 
   * Await hanya boleh berada didalam block Async function
   */

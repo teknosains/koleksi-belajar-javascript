@@ -89,3 +89,32 @@
    * agus.create() <--- error , karenanya kalo kita check 
    * agus.hasOwnProperty('create') <-- false
    */
+
+/**
+ * Prototype dari Class parent akan diwariskan ke property __proto__ dari Child
+ * 
+ * secara teknis ditulis: child.__proto__ = parent.prototype
+ */
+
+function Animal(name) {
+    this.name = name;
+}
+
+Animal.prototype.sayName = function() {
+    console.log('Saya ' + this.name)
+};
+
+var kambing = new Animal('Kambing');
+
+/**
+ * kode diatas kita bisa ambil faidah sbb:
+ * 
+ * 1. Animal adalah sebuah function, maka __proto__ dari Animal adalah prototype dari Function()
+ *     - secara teknis ditulis: Animal.__proto__ = Function.prototype
+ *     - cara cek nya: console.dir(Animal.__proto__)
+ * 
+ * 2. kambing adalah salah satu jenis (instance dari) Animal, maka __proto__ dari kambing adalah
+ *    prototype dari Animal()
+ *      - secara teknis ditulis: kambing.__proto__ = Animal.prototype
+ *      - cara cek nya: console.dir(kambing.__proto__)
+ */

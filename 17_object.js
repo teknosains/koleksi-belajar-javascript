@@ -53,7 +53,7 @@ for (let key in player) {
     console.log(player[key]); // the values
 }
 
-// Object itu di Assign dan di copy by reference. Jadi saat kita bikin Object, value nya
+// Object itu di Assign dan di copy by reference (passing by reference). Jadi saat kita bikin Object, value nya
 // di kopy ke memory...dan variable nya punya reference/pinter ke alamat memory nya
 
 let human = {
@@ -75,7 +75,7 @@ console.log(budi.name); // Candra
  * maka value nya akan terlihat (sama) oleh human.name juga
  */
 
- // beda hal nya dengan tipe data primitif dimana value di assign langsung
+ // beda hal nya dengan tipe data primitif dimana value di assign langsung (passing by value)
  let x = 3; // asign 3 ke x
  let y = x; // copy value dari x ke y...jadi skrg y = 3
 
@@ -126,9 +126,11 @@ console.log(budi.name); // Candra
       }
     }
   }
+
+  menu.title = "My Menu updated";
   
   multi();
-  console.log(menu); // { height: 600, title: "My Menu", width: 400 }
+  console.log(menu); // { height: 600, title: "My Menu updated", width: 400 }
 
 
   // Computed property
@@ -149,7 +151,7 @@ console.log(budi.name); // Candra
 
    // Menyingkat Object property 
    /**
-    * Jika suatu object propertey/key sama dengan variable yang mau di assign, 
+    * Jika suatu nama object propertey/key sama dengan variable yang mau di assign, 
     * maka tidka perlu ditulis lagi
     */
 

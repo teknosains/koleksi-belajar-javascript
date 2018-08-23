@@ -138,6 +138,9 @@ Object.preventExtensions(mahasiswa); // agar object nya gk bisa ditambahin prope
 
 mahasiswa.alamat = "Jakarta"; // Error, karena preventExtensions
 
+// preventExtensions penting kalo kita buat library/suatu class...yang kita gk mau orang lain
+// bisa nambahin property baru
+
 /**
  * Cara cek apakah suatu object bisa di ubah, delete dan ditambah property baru
  * silahkan cobain
@@ -154,15 +157,18 @@ Object.isFrozen(obj);
  */
 function script() {
   'use strict';
-  let object1 = {};
+  let object1 = {
+    property1: 50
+  };
 
   Object.defineProperty(object1, 'property1', {
-    value: 42,
     writable: false
   });
 
   object1.property1 = 77; // akan Error dalam striict Mode
   // karena attribute writable: false, tapi klo gk di strict mode...
-  // meskipun writable: false..ia gak bakal Error...
+  // meskipun writable: false..ia gak bakal Error...meskipun value nya gk bisa diubah
   // jadi biar aman...pakelah strict mode
+
+  console.log(object1.property1); // 50  <-- gk bisa diubah
 }
