@@ -213,9 +213,6 @@ child.__proto__ == Parent.prototype; // true
     Programmer.prototype = Object.create(Person.prototype); // basically ini ada prototypal
 
 
-    // Classical model disebut juga Psudoclassical pattern...lihat lebih jelas nya di
-    // file javascript_inheritance_pattern/01_pseudoclassical_pattern.js
-
   /**
    * Prototypal Model
    * 
