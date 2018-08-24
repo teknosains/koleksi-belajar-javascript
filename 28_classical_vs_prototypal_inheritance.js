@@ -212,6 +212,23 @@ child.__proto__ == Parent.prototype; // true
     // lihat baris ini
     Programmer.prototype = Object.create(Person.prototype); // basically ini ada prototypal
 
+    // di ES6, Class inherit dari Class lain dibuat lebih "mudah"
+    // seperti ini
+    class User {
+      constructor(name) {
+        this.name;
+      }
+    }
+    
+    class Player extends User {
+      constructor(name) {
+         super(name);
+       }
+    }
+    
+    let agus = new Player('Agus');
+
+
 
   /**
    * Prototypal Model
