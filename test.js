@@ -1,11 +1,17 @@
+function build(n) {
+  let x = '';
+  for(let i = 1; i <= n; i++) {
+    for (let j = n; j >= 1; j--) {
+      if (j > i) {
+        x +=' ';
+      } else {
+        x += '*';
+      }
+    }
+    x += '\n';
+  }
 
+  return x;
+}
 
-
-
-function cek() {}
-
-> cek.__proto__ == Function.prototype
-> Function.__proto__ == Function.prototype
-> Function.prototype.__proto__ == Object.prototype
-> Object.__proto__ == Object.prototype
-> Object.prototype.__proto__
+console.log(build(4));

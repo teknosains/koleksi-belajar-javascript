@@ -4,8 +4,20 @@
  */
 
  /**
+  * Javascript adalah bahasa pemrograman yang di standarisasi oleh ECMA, sebuah organisasi
+  * dibidang komputer di dunia. Semua spesifikasi Javascript didasarkan pada spesifikasi dari ECMA
+  * 
+  * jadi Browser dan javascript Engine mau gak mau harus adopsi standar ini. Jika tidak atau terlambat
+  * maka berakibat tidak kompatible-nya syntax-syntax dan fitur-fitur terbaru yang ditambahkan ke Javascript 
+  *
+  * Umumnya saat ini yang paling banyak di Adopsi adalah Javascript versi Ecma jadul. 
+  * lalu sekarang sudah jaman-nya orang pakai versi Ecma-2015 atau disebut juga ES6..dimana banyak fitur
+  * dan syntax-syntax baru diperkenalkan 
+  */
+
+ /**
   * Sekarang deklarasi variable lebih ditekankan untuk menggunakan operator let dan const
-  * dibanding pake var
+  * dibanding pake var. let dan const adalah fitur baru di ES6
   */
 
  var nama = "Budi"; // boleh, tapi sekarang tidak di rekomendasi
