@@ -233,15 +233,26 @@ child.__proto__ == Parent.prototype; // true
   /**
    * Prototypal Model
    * 
-   * yaitu dimana object dibuat LANGSUNG dari object lain
+   * yaitu dimana object dibuat LANGSUNG dari object lain...namun pada prakteknya, ada beberapa
+   * tipe Inheritance pada Prototypal Model
+   * 
+   * 1. Delegation/Diferensial inheritance. Yaitu dimana inheritance dilakukan dengan cara
+   * membuat pointer/reference dari child object ke parent object atau ke parent prototype-nya. 
+   * 
+   * child.__proto__ == parent
+   * atau
+   * child.__proto__ == parent.prototype
+   * 
+   * Inheritance ini dilakukan dengan Object.create()
    */
   const Person = {
       name: 'Budi K'
   };
 
-  let budi = Object.create(Person);
+  let budi = Object.create(Person); // ini membuat [[Prototype]] atau __proto__ ke parent object
 
   budi.name; // Budi K
+  console.dir(budi.__proto__ == Person); // true
 
   // contoh lain
 
@@ -294,3 +305,133 @@ child.__proto__ == Parent.prototype; // true
     
     return newUser;
   }
+
+
+  /**
+   * Tipe prototypal yang ke-2 adalag Concatenative Inheritance...yaitu inheritance dimana
+   * object si parent di clone ke object si child...jadi di child akan punya object sendiri, dan
+   * perubahan di base-object si parent tidak akan berpengaruh ke child
+   * 
+   * untuk membuat inheritance ini, kita bisa pakai Object.assign()
+   */
+
+   const Person = {
+       name: 'Dedi',
+       age: 20,
+       sayName: function() {
+           console.log('My name is ' + this.name);
+       }
+   };
+
+   const child = Object.assign({}, Parent);
+   Person.name = "Agus"; // perubahan pada Parent tidak mempengaruhi Child, karena child sdh berdiri sendiri
+   child.sayName(); // My Name is Dedi
+
+   console.dir(child); // coba ini di Console, ente akan liat kalo Person Object bener-bener di Copy ke child
+
+   // beda halnya dengan Delegation dengen Object.create()
+   const Person = {
+        name: 'Dedi',
+        age: 20,
+        sayName: function() {
+            console.log('My name is ' + this.name);
+        }
+    };
+
+    const child = Object.create(Parent);
+    Person.name = "Agus";
+    child.sayName(); // My name is Agus  < --- ikut berubah jika parent berubah
+
+   /**
+    * Sering kali, tatkala memakai Prototypal Model, kita kombinasikan antara Delegation dan Concatenative
+    * dan ini tergantung dari kebutuhan tentunya...namun ini menjadikan Prototypal model lebih flexible
+    */
+
+  /**
+   * Classical vs Prototypal....mana yang mesti digunakan?
+   * 
+   * Mana saja silahkan asalah sesuai kebutuhan,,,,Classical nampak lebih "pure" oop seperti pada
+   * bahasa pemrograman lain...hanya saja di Javascript, top level developer ternyata banyak
+   * yang kurang recommen adalasanya karena:
+   * 
+   * 1. Javascript itu dinamis dan Flexible, "new" keywords pada Classical membuat-nya strict...
+   * alias mau gk mau mesti pake "new" keyword untuk buat instance/object
+   * 2. "extends" pada Classical ES6, membuat orang seringkali membabi buta membuat inheritance
+   * bahkan sampai Deep inheritance..ini buruk di Javascript. 
+   * 3. Top level developer hanya menggunakan ES6 class "Extends" dengan syarat, hanya boleh ada satu level inheritance
+   * karena deep inheritance sangat sulit di maintain
+   */
+
+   // 1 level inheritance...GOOD
+  class A {}
+  class B extends A{}
+
+  // Deep level inheritance, BAD
+  class O {}
+  class P extends O {}
+  class Q extends P {}
+  // ...
+
+  /**
+   * Javascript Guru seperti Eric Elliot dan Douglas Crockford lebih memilih pake Prototypal inheritance
+   * dengan Factory model...mereka menilai ini lebih "Javascript banget", simple dan flexible.
+   * 
+   * 
+   * Saya pribadi setuju dengan Eric dan Douglas...tapi saya juga tetap pakai Classical, dengan
+   * catatan hanya ada 1 level inheritance saja...
+   */
+
+   /**
+    * Latihan: 
+    */
+    const persegipanjang = {
+        panjang: 0,
+        lebar: 0,
+        satuan: 'cm',
+        luas() {
+            let luasnya = this.panjang * this.lebar;
+            console.log(`${this.panjang}x${this.lebar} = ${luasnya}${this.satuan}`);
+        }
+    };
+    
+    persegipanjang.panjang = 4;
+    persegipanjang.lebar = 3;
+    persegipanjang.satuan = 'm';
+    persegipanjang.luas(); // 4x3 = 12m
+
+    // Dengan konsep Prototypal Inheritance, bagaimana agar Kode diatas lebih Optimize?
+    // dan agar tidak define satu per satu seperti diatas
+
+    // Caranya adalah dgn membuat-nya "mirip" constructor function, kita akan buatkan dengan 
+    // bantuan Factory
+    const persegipanjang = {
+      create(panjang, lebar, satuan) {
+        let newObj = Object.create(this);
+        newObj.panjang = panjang;
+        newObj.lebar = lebar;
+        newObj.satuan= satuan;
+        
+        return newObj;
+      },
+      luas() {
+        let luasnya = this.panjang * this.lebar;
+        console.log(`${this.panjang}x${this.lebar} = ${luasnya}${this.satuan}`);
+      }
+    };
+      
+    const pp = persegipanjang.create(4, 3, 'm');
+    pp.luas(); // 4x3 = 12m
+
+    console.dir(pp); // pp sekarang punya properti pribadi {panjang, lebar, satuan} 
+    // serta mewarisi fungsi create() dan luas()
+
+    // Dengan cara diatas, kita bisa membuat object lainnya yg meng-inherit dari persegipanjang
+    const persegi = Object.create(persegipanjang);
+    // buat implementasi create() sendiri alias meng-override create() yang diwariskan dari persegipanjang 
+    persegi.create = function(sisi, satuan) {
+      // manfaatkan create() parent nya
+      return persegipanjang.create.call(this, sisi, sisi, satuan);
+    };
+
+    const ps = persegi.create(4, 'cm');
+    ps.luas(); // 4x4 = 16cm
