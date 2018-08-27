@@ -379,6 +379,10 @@ child.__proto__ == Parent.prototype; // true
    * 
    * Saya pribadi setuju dengan Eric dan Douglas...tapi saya juga tetap pakai Classical, dengan
    * catatan hanya ada 1 level inheritance saja...
+   * 
+   * "In order to claim fluency in JavaScript, 
+   * it’s important to understand how JavaScript’s 
+   * native inheritance capabilities work" - Eric Elliott
    */
 
    /**
