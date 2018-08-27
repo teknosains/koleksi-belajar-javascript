@@ -383,6 +383,7 @@ child.__proto__ == Parent.prototype; // true
 
    /**
     * Latihan: 
+    * -------------------------------------------------------------------------
     */
     const persegipanjang = {
         panjang: 0,
@@ -410,7 +411,7 @@ child.__proto__ == Parent.prototype; // true
         newObj.panjang = panjang;
         newObj.lebar = lebar;
         newObj.satuan= satuan;
-        
+
         return newObj;
       },
       luas() {
