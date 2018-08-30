@@ -366,10 +366,23 @@ child.__proto__ == Parent.prototype; // true
   class A {}
   class B extends A{}
 
-  // Deep level inheritance, BAD
+  // Deep level inheritance...BAD
   class O {}
   class P extends O {}
   class Q extends P {}
+
+  // 1 level inheritance...GOOD
+  function A() {}
+  function B() {}
+  B.prototype = Object.create(A.prototype);
+
+  // Deep level inheritance...BAD
+  function O() {}
+  function P() {}
+  P.prototype = Object.create(O.prototype);
+  function Q() {}
+  Q.prototype = Object.create(P.prototype);
+
   // ...
 
   /**

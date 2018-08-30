@@ -173,3 +173,34 @@ console.log(wina.displayPerson());
      Array.prototype.filter = function(arg) {
         // ...
      };
+
+    
+    /**
+     *  membuat Constructor Function Aman meskipun dipanggil tanpa "new"
+     */
+    function Human(name) { 
+        this.name = name;
+        
+        // perhatikan
+        if (!(this instanceof Human)) {
+          return new Human(name);
+        }
+      }
+      Human.prototype = {
+        constructor: Human,
+        sayName() {
+          return `My name is ${this.name}`;
+        }
+      };
+      Object.defineProperty(Human.prototype, 'constructor', {
+        writable: false, enumerable: false, configurable: false
+      });
+      
+      
+      budi = Human('Budi'); // kita bisa panggl begini...tanpa "new"
+      budi.sayName();
+
+      // kita pakai new pun gda masalah
+      budi = new Human('Budi');
+
+      budi.sayName();

@@ -20,6 +20,8 @@
 
  /**
   * IIFE (immidiate invoke function expression)
+  * adalah function yang memanggil dirinya sendiri tanpa harus dipanggil
+  * seperti biasa
   */
 
   function test () {
@@ -36,7 +38,10 @@
     console.log('hello world'); // hello world
   })();
 
-  // javascript sebenanyr melakukan ini dibelakang
+  // ini sangat berguna sekali dan kita akan lihat banyak menusia yang pakai
+  // see folder: javascript_design_pattern
+
+  // javascript sebenarnya melakukan ini dibelakang
 
   (
     function() {
