@@ -33,14 +33,17 @@
   var Customer = (function() {
     // private properties
     var _name = 'Agus';
-    var _sayName = function() {
+
+    // public properties
+    var pub = {};
+
+    pub.name = _name;
+    pub.sayName = function() {
       return 'My name is ' + name;
     };
 
     // return apa saja yang mau di public-kan
-    return {
-      sayName: _sayName
-    };
+    return pub
 
   })();
 
@@ -117,3 +120,38 @@ var Penjualan = (function(customer, $, window) {
   // sekarang Module Customer available disini
   //...
 })(Customer, jQuery, window);
+
+
+/**
+ * Revealing Module Pattern...
+ * adalah teknik lanjutan dengan Module Patern dimana Object yang di expose
+ * di wrap didalam return object dan disimpan di akhir script
+ * 
+ * cara ini juga lebih mudah dibaca dan fahami oleh Developer
+ */
+
+var Penjualan = (function(cust, inv) {
+    // private properties
+    function _detailOrder() {
+      //
+    }
+    function _getCustomer() {
+      return cust;
+    }
+    function _getInvoice() {
+      return inv;
+    }
+
+    // public
+    return {
+      order: _detailOrder,
+      customer: _getCustomer,
+      invoice: _getInvoice
+    };
+
+})(Customer, Invoice);
+
+//penggunaan revealing patern
+Penjualan.order();
+Penjualan.customer();
+Penjualan.invoice();
