@@ -1,7 +1,7 @@
 /**
  * UMD (Universal Module Definition)
  * 
- * Pattern ini sangat umum digunakan, jQuery dan banyal library lain
+ * Pattern ini sangat umum digunakan oleh banyak library
  * pakai Pattern ini
  * 
  * kenapa dinamai Universal, karena Patern ini mengakomodasi implementasi module
@@ -9,7 +9,7 @@
  * 
  * Pattern ini seringkali memakai Revealing Module Pattern sebagai factory function nya
  */
-(function(root, factory) {
+(function(global, factory) {
   if (typeof define === 'function' && define.amd) {
     // support untuk AMD
     define([], factory);
@@ -17,25 +17,17 @@
     // support untuk Node.JS
     module.exports = factory();
   } else {
-    // support untuk Browser (root adalah global window)
-    // namai Library kita
-    root.Calculator = factory();
+    // support untuk Browser (global adalah global window)
+    // namai Library kita "Calculator"
+    global.Calculator = factory();
   }
 }(this, function() {
   // Revealing Module Pattern
   // private properties
-  var _tambah = function(a, b) {
-    return a + b;
-  };
-  var _kurang = function(a, b) {
-    return a - b;
-  };
-  var _kali = function(a, b) {
-    return a * b;
-  };
-  var _bagi = function(a, b) {
-    return a / b;
-  };
+  var _tambah = function(a, b) { return a + b; };
+  var _kurang = function(a, b) { return a - b; };
+  var _kali = function(a, b) { return a * b; };
+  var _bagi = function(a, b) { return a / b; };
   
   // public properties
   var Calculator = {
