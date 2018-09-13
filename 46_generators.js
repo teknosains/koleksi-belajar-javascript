@@ -172,5 +172,31 @@ console.log(
   pangkat2.next() // { done: true, value: undefined }
 );
 
+
+// Membuat Object jadi Iterable dengan Generator
+
+let options = {
+  name: 'John',
+  age: 30,
+  country: 'Japan'
+}
+
+options[Symbol.iterator] = function * () {
+    for (let key in this) {
+      yield [key, this[key]];
+    }
+}
+
+for (let x of options) {
+  console.log(x);
+}
+
+// output:
+// ["name", "John"]
+// ["age", 30]
+// ["country", "Japan"]
+
+
+
 // selengkapnya silahkan pelajari 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
