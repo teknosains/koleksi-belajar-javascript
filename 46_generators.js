@@ -1,9 +1,9 @@
 /**
  * Generator Function adalah sebuah function dengan kemampuan khusus
  * dimana eksekusi di function itu kita bisa pause, lalu re-play lagi
- * terus begitu sampai keadaan tertentu...
+ * terus begitu sampai keadaan tertentu/reach-the-end...
  * 
- * beda halnya dgn function biasa...eksekusi dilakukan sampai function me-return seuatu
+ * beda halnya dgn function biasa...eksekusi dilakukan sampai function me-return sesuatu
  * atau sampai kode sdh reach-the-end.
  * 
  * Geneator function diperkenalkan di Javascript ES6,,,dan banyak fitur Javasript baru 
@@ -112,7 +112,7 @@ console.log(run.next()) // run third step (yield ke-dua)
 // Lazy Evaluation
 
 // Generator mengusung Lazy Evaluation...artinya eksekusi akan di delay sampai 
-// value yang kita mau terpenuhi...ini juga berarti meng-hemat memory consumption
+// value yang kita mau ada/terpenuhi...ini juga berarti meng-hemat memory consumption
 
 function* hitungPangkat(start, pangkat) {
   let counter = 0;
