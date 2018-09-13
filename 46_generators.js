@@ -187,6 +187,8 @@ options[Symbol.iterator] = function * () {
     }
 }
 
+// karena sdh Iterable, maka kita bisa akses dengan loop for-of
+
 for (let x of options) {
   console.log(x);
 }
