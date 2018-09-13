@@ -14,3 +14,12 @@ let [budi, agus] = user;
 
 console.log(budi);
 console.log(agus);
+
+// descturcture array dengan rest operator
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+const [a, b, ...c];
+
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // [3,4,5,6,7,8,9,10]
