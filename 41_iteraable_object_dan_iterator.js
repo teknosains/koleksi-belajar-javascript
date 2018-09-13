@@ -60,3 +60,35 @@
   for (let val of nilai) {
     console.log(val); // 0, 1, 2, ...10
   }
+
+
+// banyak fitur di Javascript yang pakai Iterator dibelakang
+// seperti ..spread operator
+// 1. [...spreadOp]
+// 2. Array
+// 3. Map
+
+// membuat Object bisa iterable dgn for-of 
+// @credit: https://stackoverflow.com/a/35820176/3168295
+var options = {
+  male: 'John',
+  female: 'Gina',
+  rel: 'Love',
+  [Symbol.iterator]: function () {
+      var self = this;
+      var values = Object.keys(this);
+      var i = 0;
+      return {
+          next: function () {
+              return {
+                  value: self[values[i++]],
+                  done: i > values.length
+              }
+          }
+      }
+  }
+};
+
+for (var p of options) {
+  console.log('Property ' + p);
+}
