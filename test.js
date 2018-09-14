@@ -1,11 +1,4 @@
-/**
- * testing spesific file with jasmine in local folder install
- * 
- * 
- * 
- * making init: node node_modules/jasmine/bin/jasmine init
- * run a file: ./node_modules/.bin/jasmine /path/to/my/spec/file.js
- */
+
 (function(global, factory) {
   if (typeof define === 'function' && define.amd) {
     // support untuk AMD
