@@ -1,53 +1,29 @@
-let max_line = 32;
-let max_header = 14;
-let max_footer = 6;
-let max_detail = max_line - max_header - max_footer;
-
-let jumlah_row = 7;
-
-
-let fill_detail = [];
-for(let i = 1; i <= jumlah_row; i++) { fill_detail.push('item-' + i); }
-
-function buildHeader() {
-  for(let i = 1; i <= max_header; i++) {
-    console.log('header-' + i);
-  }
-}
-
-function buildFooter() {
-  for(let i = 1; i <= max_footer; i++) {
-    console.log('footer-' + i);
-  }
-}
-
-// focus disini
-function buildDetail() {
-  let counter = 1;
-  fill_detail.forEach((item, idx) => {
-    if ((counter+max_detail)+1 < max_line) {
-      console.log(counter + '->' + item);
-      counter++;
-    } else {
-      console.log('*************************************');
-      console.log('*************************************');
-      console.log('*************************************');
-      counter = 1;
-    }
-
-  });
-
-  if (fill_detail.length < max_detail) {
-    for (let i = counter; i <= (max_detail); i++) {
-      console.log(i + '***************************************');
-    }
+/**
+ * testing spesific file with jasmine in local folder install
+ * 
+ * 
+ * 
+ * making init: node node_modules/jasmine/bin/jasmine init
+ * run a file: ./node_modules/.bin/jasmine /path/to/my/spec/file.js
+ */
+(function(global, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // support untuk AMD
+    define([], factory);
+  } else if (typeof module === 'object') {
+    // support untuk Node.JS
+    module.exports = factory();
   } else {
-    for (let i = 1; i <= (max_line - (counter + max_footer)); i++) {
-      console.log(i + '***************************************');
-    }
+    // support untuk Browser (global adalah global window)
+    // namai Library kita "Calculator"
+    global.Calculator = factory();
   }
-}
+})(this, function() {
+  function _add(a, b) {
+    return a + b;
+  }
 
-buildHeader();
-buildDetail();
-buildFooter();
+  return {
+    add: _add
+  }
+});

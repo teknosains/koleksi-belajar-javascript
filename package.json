@@ -1,0 +1,26 @@
+{
+  "name": "coba",
+  "version": "1.0.0",
+  "description": "javasscript fundamental",
+  "main": "test.js",
+  "dependencies": {
+    "jasmine": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetrash/koleksi-belajar-javascript.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "budy k",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codetrash/koleksi-belajar-javascript/issues"
+  },
+  "homepage": "https://github.com/codetrash/koleksi-belajar-javascript#readme"
+}
