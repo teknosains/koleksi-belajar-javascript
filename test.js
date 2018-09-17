@@ -1,5 +1,5 @@
 
-(function(global, factory) {
+(function(global, moduleName, factory) {
   if (typeof define === 'function' && define.amd) {
     // support untuk AMD
     define([], factory);
@@ -9,9 +9,9 @@
   } else {
     // support untuk Browser (global adalah global window)
     // namai Library kita "Calculator"
-    global.Calculator = factory();
+    global[moduleName] = factory();
   }
-})(this, function() {
+})(this, 'Calculator', function() {
   function _add(a, b) {
     return a + b;
   }

@@ -313,5 +313,6 @@ hi();
     // ini memang aneh...saya mah pengennya mau ada default paramater atau tidak
     // mestinya tetap bisa dihitung...
 
+
     // Behaviour dari default paramater ini cukup aneh-aneh...silahkan baca lengkapnya di
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
