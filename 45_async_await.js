@@ -137,7 +137,10 @@ try {
   let user = response.json();
   return { status: true, data: user };
 } catch (err) {
-  return { status: false, error: err};
+  // logging error-nya dulu ke suatu tempat
+  // someLogging.log(err)
+  // atau kita return bisa kita handle belakangan
+  return { status: false, error: err };
 }
 
 // dengan try catch seperti diatas...kita tidak usah pake .catch lagi
