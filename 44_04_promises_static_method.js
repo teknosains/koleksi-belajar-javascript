@@ -59,7 +59,12 @@ prosesUser().then(function(response) {
  * Promise.all([<Array of Promises>])
  * 
  * ini dia yang banyak dipakai...digunakan untuk menjalankan multiple promise
- * secara paralel
+ * secara paralel namun hasilnya tetep sesuai urutan
+ * 
+ * init: Promise.all([promise_1, promise_2, promise_3])
+ * hasil: promise_1, promise_2, promise_3
+ * 
+ * sesuai urutan dia...
  */
 
 let getUser = new Promise((resolve, reject) => resolve('Budi'));
