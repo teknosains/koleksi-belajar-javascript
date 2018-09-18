@@ -7,11 +7,11 @@
      age: 30,
  };
 
- //jadi dari pada begini
+ //jadi selain begini
  let name = user.name;
  let age = user.age;
 
- //mending begini
+ //kita bisa juga akses property object seperti ini
 
  let {name, age} = user;
  

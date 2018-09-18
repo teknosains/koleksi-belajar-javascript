@@ -1,4 +1,5 @@
 /**
+ * Sejak Javascript versi 2015 (ES6),
  * Array bisa kita de-structure biar membuat assignmen ke variable
  * lebih mudah
  */

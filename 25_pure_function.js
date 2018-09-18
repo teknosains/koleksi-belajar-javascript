@@ -14,7 +14,7 @@
  * Makanya pure function Wajib punya minimal 1 input dan 1 return value (output)
  * dan satu input yang sama akan menghasilkan output yang selalu sama..apapun kondisinya
  * 
- * pure function juga tidak boleh menggunakan Global variable
+ * pure function juga tidak boleh menggunakan dan mengubah Global variable
  */
 
 // contoh pure function
