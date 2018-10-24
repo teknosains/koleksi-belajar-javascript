@@ -122,7 +122,7 @@ console.log(x); // 10
  mm = 2;
  let mm;
  
-
+//test coba
  /**
   * Contoh behaviour kampret dari var, 
   * saat kita bikin callback function didalam loop
