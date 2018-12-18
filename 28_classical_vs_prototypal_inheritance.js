@@ -323,7 +323,7 @@ child.__proto__ == Parent.prototype; // true
        }
    };
 
-   const child = Object.assign({}, Parent);
+   const child = Object.assign({}, Person);
    Person.name = "Agus"; // perubahan pada Parent tidak mempengaruhi Child, karena child sdh berdiri sendiri
    child.sayName(); // My Name is Dedi
 
