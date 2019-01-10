@@ -58,5 +58,6 @@ function test() {
 
 test(); // Error: nilai is not defined
 
-// kenapa kalao pake let error? karena let tidak di hoisted oleh Javascript engine
+// kenapa kalao pake let dan const error? meskipun sebenarnya let dan const sama-sama di Hoisted, tapi let dan const tidak 
+// dapat di akses jika belum di deklarasi
  
