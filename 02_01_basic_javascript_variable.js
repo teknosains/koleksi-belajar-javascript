@@ -187,13 +187,16 @@ console.log(x); // 10
   }
 
   /**
-   * Resiko Bahaya menggunakan var di variable Global
+   * Resiko Bahaya menggunakan var/let/const di variable Global
    * 
-   * karena var value nya bisa di override dimana saja, maka bahaya..apalagi
-   * klo kita gk hati-hati saat buat variable
+   * karena declara bisa dimana saja, maka harus hati-hati..
    */
 
    var Date = "hari ini";
 
    // Date diatas akan meng-override built-in/native library Date()
    // jadinya gk bisa akses semua fungsionalitas dari Date()
+   // Oleh karena itu penting untuk mengenali Native Object/Class di Javascript seperti Date(), Function(), Object(), Number() dll..
+   // agar tidak salah saat membuat variable
+
+   
