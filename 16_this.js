@@ -53,17 +53,20 @@
     matkul: ["C2", "C3", "C4"],
     showMatkul() {
       console.log(this); // this ini milik si Object mhs
+      console.log(this.matkul); // array matkul
 
-      //jika kita buat function disini
+      //sekarang jika kita buat function disini
+
       this.matkul.forEach(function(item, index) {
         console.log(this); // this ini milik global window object
+
         // makanya this ini tidak punya akses ke this milik si mhs
         // this.name <-- undefined
         // this.age <-- undefined
 
         /**
          * Kenapa this ini milik gklobal oject? karena pada saat eksekusi, 
-         * function ini di eksekusi di Global context, makanya this nya
+         * callback function ini di eksekusi di Global context, makanya this nya
          * itu milik si window global object
          */
 
