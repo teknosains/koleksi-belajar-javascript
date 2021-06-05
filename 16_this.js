@@ -1,6 +1,6 @@
 /**
  * keyword this di Javascript, buat apa ?
- * Keyword this sebenarnya adalah property dari sebuat class/Constructor function
+ * Keyword this sebenarnya adalah property dari sebuah class/Constructor function
  * 
  * this juga sebenarnya adalah sebuah Object. saat kita buat Constructor seperti ini
  */
@@ -13,7 +13,7 @@
   let budi = new Human("Budi", 40);
  
 
-  // dibelakang dia buatin/define implicit object untuk this
+  // dibelakang dia di buatin/define implicit object untuk this
   // dia juga buatin implisit return untuk this
 
   function Human(name, age) {
